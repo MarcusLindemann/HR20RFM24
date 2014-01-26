@@ -83,8 +83,9 @@ static bool    RTC_IsLastSunday(void);     // check actual date if last sun in m
 
 // Progmem constants
 
+// TODO: Check if this variable can be made static
 //! day of month for each month from january to december
-uint8_t RTC_DayOfMonthTablePrgMem[] PROGMEM =
+const uint8_t RTC_DayOfMonthTablePrgMem[] PROGMEM =
 {
     31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
 };
@@ -109,10 +110,10 @@ void RTC_Init(void)
         TCNT2 = 0;                          // clear TCNT2A
         TCCR2A |= TCCR2A_INIT;    // select precaler: 32.768 kHz / 128 =
                                             // => 1 sec between each overflow
-    	
+
     	// wait for TCN2UB and TCR2UB to be cleared
         while((ASSR & (_BV(TCN2UB)|_BV(TCR2UB))) != 0);
-    
+
         TIFR2 = 0xFF;                       // clear interrupt-flags
         TIMSK2 |= (1<<TOIE2);               // enable Timer2 overflow interrupt
     #else
@@ -124,7 +125,7 @@ void RTC_Init(void)
 
     // day of week
     RTC_SetDayOfWeek();
-    
+
     //! \note OCR2A register and interrupt is used in \ref keyboard.c
 }
 
@@ -198,7 +199,7 @@ void RTC_SetSecond(int8_t second)
 #if defined(MASTER_CONFIG_H)
 /*!
  *******************************************************************************
- *  set actual time 
+ *  set actual time
  *  \param second new value for 1/100 seconds
  ******************************************************************************/
 void RTC_SetSecond100(uint8_t second100)
@@ -216,7 +217,7 @@ void RTC_SetSecond100(uint8_t second100)
  *  \param dow day of week
  *  \param slot timeslot number
  *  \param time time
- *  \param timermode (type \ref timermode_t) 
+ *  \param timermode (type \ref timermode_t)
  *
  *  \note
  *      - maximum timers for each weekday with \ref RTC_TIMERS_PER_DOW
