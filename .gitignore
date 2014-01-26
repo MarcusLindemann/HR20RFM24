@@ -1,0 +1,14 @@
+rfmsrc/OpenHR20/.dep
+rfmsrc/OpenHR20/HR20_original_hww/
+rfmsrc/OpenHR20/HR20_original_sww/
+rfmsrc/OpenHR20/HR20_rfm_ext_hww/
+rfmsrc/OpenHR20/HR20_rfm_ext_sww/
+rfmsrc/OpenHR20/HR20_rfm_int_hww/
+rfmsrc/OpenHR20/HR20_rfm_int_sww/
+rfmsrc/OpenHR20/HR25_original_sww/
+rfmsrc/OpenHR20/thermotronic_sww/
+rfmsrc/OpenHR20/obj
+rfmsrc/bin
+rfmsrc/master/.dep
+rfmsrc/master/master1
+
